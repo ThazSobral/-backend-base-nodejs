@@ -7,9 +7,12 @@ const app = express()
 // Iniciando o DB
 mongoose.connect(
   "mongodb+srv://user:user@cluster0-gt40f.mongodb.net/test?retryWrites=true&w=majority",
-  { useNewUrlParser: true,
-  useUnifiedTopology: true }
+  { 
+    useNewUrlParser: true ,
+    useUnifiedTopology: true
+  }
 )
+require('./src/models/Product')
 
 // Rotas
 app.get('/',(req, res) => {
