@@ -7,17 +7,21 @@ const app = express()
 
 // Iniciando o DB
 mongoose.connect(
-  "mongodb+srv://user:user@cluster0-gt40f.mongodb.net/test?retryWrites=true&w=majority",
-  { 
-    useNewUrlParser: true ,
-    useUnifiedTopology: true
-  }
+  "mongodb://localhost:27017/nodeapi",
+  { useNewUrlParser: true,
+  useUnifiedTopology: true }
 )
 requireDir('./src/models')
+const Product = mongoose.model('Product')
 
 // Rotas
 app.get('/',(req, res) => {
-  res.send('Hello')
+  Product.create({
+    title: 'React Native',
+    description: 'Build native apps with',
+    url: 'http://github.com/facebook/react'
+  })
+  return res.send('Hello')
 })
 
 app.listen(3001)
