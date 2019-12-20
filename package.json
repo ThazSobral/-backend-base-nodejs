@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/ThazSobral/Rocketseat-Nodejs/issues"
   },
-  "homepage": "https://github.com/ThazSobral/Rocketseat-Nodejs#readme"
+  "homepage": "https://github.com/ThazSobral/Rocketseat-Nodejs#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
