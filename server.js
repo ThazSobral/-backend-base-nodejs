@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const requireDir = require('require-dir')
 
 // Iniciando o App
 const app = express()
@@ -12,7 +13,7 @@ mongoose.connect(
     useUnifiedTopology: true
   }
 )
-require('./src/models/Product')
+requireDir('./src/models')
 
 // Rotas
 app.get('/',(req, res) => {
