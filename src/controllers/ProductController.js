@@ -1,12 +1,12 @@
-const mongoose = require('mongoose')
-
-const Product = mongoose.model('Product')
+const Product = require('../models/Product')
+const { sendMessage } = require('../websocket')
 
 module.exports = {
   async index(req, res) {
     const { page = 1 } = req.query
-    const products = await Product.paginate({}, { page, limit: 10 })
-    return res.json(products)
+    const product = await Product.paginate({}, { page, limit: 10 })
+
+    return res.json(product)
   },
 
   async show(req, res) {
@@ -15,7 +15,14 @@ module.exports = {
   },
 
   async store(req, res) {
-    const product = await Product.create(req.body)
+    let product = await Product.findOne({ title: req.body.title })
+
+    if (!product) {
+      product = await Product.create(req.body)
+
+      sendMessage('', 'new-product', product)
+    }
+    
     return res.json(product)
   },
 
@@ -25,7 +32,7 @@ module.exports = {
   },
 
   async destroy(req, res) {
-    await Product.findOneAndDelete(req.params.id)
+    await Product.findOneAndDelete({_id: req.params.id})
     return res.send()
   }
 }
