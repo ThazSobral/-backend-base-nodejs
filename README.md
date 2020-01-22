@@ -1,4 +1,4 @@
-# Base-Backend
+# Backend-Base
 ### Modelo base para backend NodeJS
 
 Para utilizar aplicar o comando `git clone https://github.com/ThazSobral/Rocketseat-Nodejs.git`.
