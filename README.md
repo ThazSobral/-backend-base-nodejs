@@ -3,26 +3,19 @@
 
 Para utilizar aplicar o comando `git clone https://github.com/ThazSobral/Rocketseat-Nodejs.git`.
 
-Contém:
 ---
-server.js
-routes
-controller/model
-CRUD
-paginate
-cors
-json default
+#### Contém:
 
-Módulos instalados:
----
-**dependencies**
+* routes
+* controllers
+* models
+* cors
+* json default
+* CRUD
+* paginate
+* websocket
 
-- cors
-- express
-- mongoose
-- mongoose-paginate
-- require-dir
-
-**devDependencies**
-
-- nodemon
+#### Características:
+* node v12.0
+* npm v6.9
+* yarn v1.21.1
